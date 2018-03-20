@@ -1,0 +1,10 @@
+<div class="panel panel-info">
+  <div class="panel-heading"> {{ posts[index].nomePessoa }} </div>
+  <div class="panel-body">  {{ posts[index].texto }} </div>
+  <div class="panel-footer"> {{ posts[index].qtdLikes }} Likes 
+    <span (click)="deuLike($event);" 
+          class="glyphicon glyphicon-thumbs-up clicavel">
+
+    </span> 
+  </div>
+</div>
