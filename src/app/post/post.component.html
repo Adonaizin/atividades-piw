@@ -1,10 +1,16 @@
 <div class="panel panel-info">
-  <div class="panel-heading"> {{ posts[index].nomePessoa }} </div>
+  <div class="panel-heading"> {{ posts[index].nomePessoa }} 
+    <button (click)="onClickRemove();"
+            type="button" 
+            class="close" 
+            aria-label="Close" 
+            style="float:right"><span aria-hidden="true">&times;</span></button>
+  </div>
   <div class="panel-body">  {{ posts[index].texto }} </div>
   <div class="panel-footer"> {{ posts[index].qtdLikes }} Likes 
-    <span (click)="deuLike($event);" 
-          class="glyphicon glyphicon-thumbs-up clicavel">
-
-    </span> 
+    <button (click)="deuLike($event);" 
+            type="button" 
+            class="btn btn-primary btn-sm glyphicon glyphicon-thumbs-up clicavel">
+    </button> 
   </div>
 </div>

@@ -11,15 +11,21 @@ export class PostComponent implements OnInit {
   @Input() posts: Post[];
   @Input() index:number;
   @Output() recebeuLike = new EventEmitter<any>();
-  
-  constructor() { }
+  @Output() removePost = new EventEmitter();
 
-  deuLike(){
-    this.posts[this.index].qtdLikes += 1;
-    this.recebeuLike.emit(this.posts[this.index]);
-  }
-  ngOnInit() {
+  constructor() { }
   
+  ngOnInit() {
+    
+  }
+  
+  deuLike(event){
+    event.preventDefault();
+    this.recebeuLike.emit(this.posts[this.index].id);
+  }
+
+  onClickRemove(){
+    this.removePost.emit(this.posts[this.index].id);
   }
 
 }
