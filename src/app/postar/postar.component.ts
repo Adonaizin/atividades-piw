@@ -5,8 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-postar',
   templateUrl: './postar.component.html',
-  styleUrls: ['./postar.component.css'],
-  providers: [PostService]
+  styleUrls: ['./postar.component.css']
 })
 export class PostarComponent implements OnInit {
 
@@ -15,12 +14,16 @@ export class PostarComponent implements OnInit {
   constructor(private postService: PostService) { }
   
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts()
+      .subscribe((data) => {
+        this.posts = data;
+        // console.log(this.posts);
+      },
+        (error) => console.log(error));
   }
 
-  addPost(post: Post){
-    this.postService.addPost(post);
-    console.log(this.postService.getPosts());
-  }
+  // addPost(post: Post){
+  //   this.postService.addPost(post);
+  // }
 
 }

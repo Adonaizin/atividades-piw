@@ -5,26 +5,24 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-linha-do-tempo',
   templateUrl: './linha-do-tempo.component.html',
-  styleUrls: ['./linha-do-tempo.component.css'],
-  providers: [PostService]
+  styleUrls: ['./linha-do-tempo.component.css']
 })
 export class LinhaDoTempoComponent implements OnInit {
 
-  @Input() posts: Post[];
+  public posts: Post[];
   constructor(private postService: PostService) { }
   
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts()
+      .subscribe(data => {
+        this.posts = data;
+        // console.log(this.posts);
+      },
+        error => console.log(error));
   }
   
-  adicionarLike(id:number){
-    this.postService.adicionarLike(id);
-  }
-
-  // addPost(post: Post){
-  //   this.postService.addPost(post);
-  //   console.log("passou no addPost linha do tempo");
-  //   console.log(this.postService.getPosts());
+  // adicionarLike(id:number){
+  //   this.postService.adicionarLike(id);
   // }
   
   excluirPost(id: number){

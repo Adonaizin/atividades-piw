@@ -1,8 +1,7 @@
-<!-- <app-post-input [posts]="posts"
-                (newPost)="addPost($event)"></app-post-input> -->
+
 <app-post [posts]="posts" 
           [index]="index"
-          (recebeuLike)="adicionarLike($event)" 
+          
           (removePost)="excluirPost($event)" 
           *ngFor="let index=index;let post of posts;">
 </app-post>

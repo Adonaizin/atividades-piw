@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { PostComponent } from './post/post.component';
 import { PostInputComponent } from './post-input/post-input.component';
 import { routing } from './app.routing';
 import { PostarComponent } from './postar/postar.component';
+import { PostService } from './post/post.service';
 
 
 @NgModule({
@@ -24,9 +26,10 @@ import { PostarComponent } from './postar/postar.component';
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
+    HttpModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
